@@ -7,7 +7,7 @@
  * Version 0.1.0
  * Licensed under the MIT license.
  */
-jQuery(function ($) {
+(function ($) {
     "use strict";
     
     $(window).on('keyup', function (event) {

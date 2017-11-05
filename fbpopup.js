@@ -12,38 +12,38 @@
     
     $(window).on('keyup', function (event) {
         if (event.keyCode === 27) {
-            var data = $('.mspopup').data('mspopup');
+            var data = $('.fbpopup').data('fbpopup');
             if (data.options.closable) {
-                $('.mspopup').mspopup('hide');
+                $('.fbpopup').fbpopup('hide');
             }
         }
     });
 
-    $(document).on('click', '.mspopup', function () {
-        var data = $(this).data('mspopup');
+    $(document).on('click', '.fbpopup', function () {
+        var data = $(this).data('fbpopup');
         if (data.options.closable) {
-            $(this).mspopup('hide');
+            $(this).fbpopup('hide');
         }
     });
 
-    $(document).on('click', '.mspopup .mspopup-container', function (event) {
+    $(document).on('click', '.fbpopup .fbpopup-container', function (event) {
         event.stopPropagation();
     });
     
-    $(document).on('click', '[data-dismiss="mspopup"]', function () {
-        $(this).parent().parent().parent().mspopup('hide');
+    $(document).on('click', '[data-dismiss="fbpopup"]', function () {
+        $(this).parent().parent().parent().fbpopup('hide');
     });
 
-    $(document).on('click', '[mspopup-target]', function () {
-        $($(this).attr('mspopup-target')).mspopup('show');
+    $(document).on('click', '[fbpopup-target]', function () {
+        $($(this).attr('fbpopup-target')).fbpopup('show');
     });
 
-    var mspopup = function (element, options) {
+    var fbpopup = function (element, options) {
         this.options = options;
         this.$element = $(element);
     };
 
-    mspopup.prototype = {
+    fbpopup.prototype = {
         width: function () {
 
             
@@ -65,7 +65,7 @@
         
         constructor: function () {
             var _this = this,
-                container = this.$element.find('.mspopup-container');
+                container = this.$element.find('.fbpopup-container');
                 
             if (this.options.autoOpen) {
                 this.show();
@@ -91,17 +91,17 @@
         }
     };
 
-    var old = $.fn.mspopup;
+    var old = $.fn.fbpopup;
 
-    $.fn.mspopup = function (option, value) {
+    $.fn.fbpopup = function (option, value) {
         var get = '',
             element = this.each(function () {
                 var $this = $(this),
-                    data = $this.data('mspopup'),
-                    options = $.extend({}, $.fn.mspopup.defaults, option, typeof option === 'object' && option);
+                    data = $this.data('fbpopup'),
+                    options = $.extend({}, $.fn.fbpopup.defaults, option, typeof option === 'object' && option);
 
                 if (!data) {
-                    $this.data('mspopup', (data = new mspopup(this, options)));
+                    $this.data('fbpopup', (data = new fbpopup(this, options)));
                     data.constructor();
                 }
 
@@ -117,7 +117,7 @@
         }
     };
 
-    $.fn.mspopup.defaults = {
+    $.fn.fbpopup.defaults = {
         'width': 500,
         'closable': true,
         'autoOpen': false,
@@ -125,8 +125,8 @@
         'onClose': function () {}
     };
 
-    $.fn.mspopup.noConflict = function () {
-        $.fn.mspopup = old;
+    $.fn.fbpopup.noConflict = function () {
+        $.fn.fbpopup = old;
         return this;
     };
 })(window.jQuery);

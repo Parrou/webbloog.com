@@ -32,7 +32,7 @@
         var sub_fab_btns;
 
         base.init = function(){
-            if( typeof( links ) === "undefined" || links === null ) {
+            if( typeof( links ) === "undefined" || ) {
                 links = [
                     {
                         "url":null,
